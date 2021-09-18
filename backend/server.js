@@ -4,6 +4,9 @@ import path from 'path'
 import dotenv from 'dotenv'
 import connectDB from './dbConnection/mongodb.js'
 
+//routed
+import gameRoutes from './routes/gameRoute.js'
+
 const app = express()
 
 app.use(morgan('dev'))
@@ -15,15 +18,16 @@ console.log('Started')
 // All Credential Things in Dotenv
 dotenv.config()
 
-// DataBase Conection
+// DataBase Connection
 connectDB()
 
+app.use(gameRoutes)
 
-const __dirname = path.resolve() 
+const __dirname = path.resolve()
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'))
-  
+
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
   })
@@ -33,6 +37,18 @@ if (process.env.NODE_ENV === 'production') {
     res.send('Server Tested')
   })
 }
+
+// for error
+app.use((error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error)
+  }
+  res
+    .status(error.code || 500)
+    .json({ message: error.message || 'An unknown error occurred' })
+})
+
+
 app.listen(
   PORT,
   console.log(`Server running in ${process.env.NODE_ENV} on port ${PORT}`)
