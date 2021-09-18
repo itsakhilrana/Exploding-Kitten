@@ -1,0 +1,2 @@
+export const PLACE_USER = 'PLACE_USER'
+export const PLACE_LEADERBOARD = 'PLACE_LEADERBOARD'
