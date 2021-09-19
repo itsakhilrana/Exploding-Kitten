@@ -13,7 +13,14 @@ export const gameReducer = (state = initialState, action) => {
 
   switch (type) {
     case PLACE_USER:
-      return {}
+      return {
+        ...state,
+        username: payload.username,
+        savedGame: payload.savedGame,
+        played: payload.played,
+        win: payload.win,
+        loose: payload.loose,
+      }
 
     default:
       return state

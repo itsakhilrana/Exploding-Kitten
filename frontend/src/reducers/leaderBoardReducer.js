@@ -7,7 +7,7 @@ export const leaderBoardReducer = (state = initialState, action) => {
 
   switch (type) {
     case PLACE_LEADERBOARD:
-      return {}
+      return { ...state, users: [...payload.users], loading: false }
 
     default:
       return state
