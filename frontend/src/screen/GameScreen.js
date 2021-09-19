@@ -191,8 +191,8 @@ const GameScreen = ({ game, saveGameAction }) => {
         <p
           style={
             tabs.playGame
-              ? { color: '#FFC533', backgroundColor:"#232323", padding:"8px" }
-              : { color: '#e0e0e0', opacity: '25%', padding:"8px" }
+              ? { color: '#FFC533', backgroundColor: '#232323', padding: '8px' }
+              : { color: '#e0e0e0', opacity: '25%', padding: '8px' }
           }
           onClick={() => {
             setTabs({ ...tabs, playGame: true, leadBoard: false, rules: false })
@@ -203,8 +203,8 @@ const GameScreen = ({ game, saveGameAction }) => {
         <p
           style={
             tabs.leadBoard
-            ? { color: '#FFC533', backgroundColor:"#232323", padding:"8px" }
-            : { color: '#e0e0e0', opacity: '25%', padding:"8px" }
+              ? { color: '#FFC533', backgroundColor: '#232323', padding: '8px' }
+              : { color: '#e0e0e0', opacity: '25%', padding: '8px' }
           }
           onClick={() => {
             setTabs({ ...tabs, playGame: false, leadBoard: true, rules: false })
@@ -215,8 +215,8 @@ const GameScreen = ({ game, saveGameAction }) => {
         <p
           style={
             tabs.rules
-            ? { color: '#FFC533', backgroundColor:"#232323", padding:"8px" }
-            : { color: '#e0e0e0', opacity: '25%', padding:"8px" }
+              ? { color: '#FFC533', backgroundColor: '#232323', padding: '8px' }
+              : { color: '#e0e0e0', opacity: '25%', padding: '8px' }
           }
           onClick={() => {
             setTabs({ ...tabs, playGame: false, leadBoard: false, rules: true })
@@ -244,7 +244,11 @@ const GameScreen = ({ game, saveGameAction }) => {
                   backgroundColor: '#232323',
                 }}
               >
-                <Typography style={{color:"#FFC533"}} paragraph align="center">
+                <Typography
+                  style={{ color: '#FFC533' }}
+                  paragraph
+                  align="center"
+                >
                   <b>Game Stats</b>
                 </Typography>
                 <Box
@@ -259,8 +263,10 @@ const GameScreen = ({ game, saveGameAction }) => {
                     flexDirection="column"
                     justifyContent="space-between"
                     alignItems="center"
-                  > 
-                  <Typography style={{color:"#FFC533"}}><b>{gameStatus.played}</b></Typography>
+                  >
+                    <Typography style={{ color: '#FFC533' }}>
+                      <b>{gameStatus.played}</b>
+                    </Typography>
                     <Typography>Played</Typography>
                   </Box>
 
@@ -274,7 +280,9 @@ const GameScreen = ({ game, saveGameAction }) => {
                     justifyContent="space-between"
                     alignItems="center"
                   >
-                    <Typography style={{color:"#FFC533"}}><b>{gameStatus.win}</b></Typography>
+                    <Typography style={{ color: '#FFC533' }}>
+                      <b>{gameStatus.win}</b>
+                    </Typography>
                     <Typography>Win</Typography>
                   </Box>
 
@@ -288,11 +296,14 @@ const GameScreen = ({ game, saveGameAction }) => {
                     justifyContent="space-between"
                     alignItems="center"
                   >
-                    <Typography style={{color:"#FFC533"}}><b>{gameStatus.loose}</b></Typography>
+                    <Typography style={{ color: '#FFC533' }}>
+                      <b>{gameStatus.loose}</b>
+                    </Typography>
                     <Typography>Loose</Typography>
                   </Box>
                 </Box>
               </Box>
+
               <Box
                 position="relative"
                 width="100%"
@@ -339,12 +350,39 @@ const GameScreen = ({ game, saveGameAction }) => {
                         <b>You {status === 'win' ? '🤩 won' : '🙁 lost'}</b>
                       </Typography>
                     ) : (
-                      <Typography><b>{cards.length} cards left</b></Typography>
+                      <Typography>
+                        <b>{cards.length} cards left</b>
+                      </Typography>
                     )}
+                  </Box>
+                  <Box
+                    position="absolute"
+                    top={30}
+                    right={0}
+                    py={1}
+                    style={{
+                      color: 'aliceblue',
+                    }}
+                  >
+                    <Box
+                      px={4}
+                      py={2}
+                      display="flex"
+                      flexDirection="column"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Typography style={{ color: '#FFC533' }}>
+                        <b>{defusingCard}</b>
+                      </Typography>
+                      <Typography>Defuse Card</Typography>
+                    </Box>
                   </Box>
 
                   {gameStatus.status === 'restarting' && (
-                    <Typography style={{color:"#FFC533"}}><b>Shuffling ...</b></Typography>
+                    <Typography style={{ color: '#FFC533' }}>
+                      <b>Shuffling ...</b>
+                    </Typography>
                   )}
 
                   {(gameStatus.status === 'loose' ||
