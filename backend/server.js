@@ -38,15 +38,18 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// for error
-app.use((error, req, res, next) => {
-  if (res.headerSent) {
-    return next(error)
-  }
-  res
-    .status(error.code || 500)
-    .json({ message: error.message || 'An unknown error occurred' })
-})
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  res.locals.error = err;
+  const status = err.status || 500;
+  res.status(status);
+  res.render('error');
+});
 
 
 app.listen(
