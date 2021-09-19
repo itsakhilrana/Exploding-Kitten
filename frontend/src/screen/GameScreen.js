@@ -14,6 +14,7 @@ import {
 import Header from '../components/Header/Header'
 import LeaderBoard from '../components/LeaderBoard/LeaderBoard'
 import Card from '../components/Card/index'
+import Rules from '../components/Rules/Rules'
 
 import '../components/Card/style.css'
 
@@ -45,6 +46,7 @@ const GameScreen = ({ game, saveGameAction }) => {
   const [tabs, setTabs] = useState({
     playGame: true,
     leadBoard: false,
+    rules: false,
   })
 
   const [gameStatus, setGameStatus] = useState({
@@ -189,11 +191,11 @@ const GameScreen = ({ game, saveGameAction }) => {
         <p
           style={
             tabs.playGame
-              ? { color: '#FFC533' }
-              : { color: '#e0e0e0', opacity: '25%' }
+              ? { color: '#FFC533', backgroundColor:"#232323", padding:"8px" }
+              : { color: '#e0e0e0', opacity: '25%', padding:"8px" }
           }
           onClick={() => {
-            setTabs({ ...tabs, playGame: true, leadBoard: false })
+            setTabs({ ...tabs, playGame: true, leadBoard: false, rules: false })
           }}
         >
           Play Game
@@ -201,14 +203,26 @@ const GameScreen = ({ game, saveGameAction }) => {
         <p
           style={
             tabs.leadBoard
-              ? { color: '#FFC533' }
-              : { color: '#e0e0e0', opacity: '25%' }
+            ? { color: '#FFC533', backgroundColor:"#232323", padding:"8px" }
+            : { color: '#e0e0e0', opacity: '25%', padding:"8px" }
           }
           onClick={() => {
-            setTabs({ ...tabs, playGame: false, leadBoard: true })
+            setTabs({ ...tabs, playGame: false, leadBoard: true, rules: false })
           }}
         >
           Leader Board
+        </p>
+        <p
+          style={
+            tabs.rules
+            ? { color: '#FFC533', backgroundColor:"#232323", padding:"8px" }
+            : { color: '#e0e0e0', opacity: '25%', padding:"8px" }
+          }
+          onClick={() => {
+            setTabs({ ...tabs, playGame: false, leadBoard: false, rules: true })
+          }}
+        >
+          Rules
         </p>
       </Box>
       {tabs.leadBoard && (
@@ -216,6 +230,7 @@ const GameScreen = ({ game, saveGameAction }) => {
           <LeaderBoard />
         </Grid>
       )}
+      {tabs.rules && <Rules />}
       {tabs.playGame && (
         <Container maxWidth={false}>
           <Grid container spacing={3}>
@@ -229,7 +244,7 @@ const GameScreen = ({ game, saveGameAction }) => {
                   backgroundColor: '#232323',
                 }}
               >
-                <Typography paragraph align="center">
+                <Typography style={{color:"#FFC533"}} paragraph align="center">
                   <b>Game Stats</b>
                 </Typography>
                 <Box
@@ -241,10 +256,12 @@ const GameScreen = ({ game, saveGameAction }) => {
                     px={4}
                     py={2}
                     display="flex"
+                    flexDirection="column"
                     justifyContent="space-between"
                     alignItems="center"
-                  >
-                    <Typography>{`Played : ${gameStatus.played} `}</Typography>
+                  > 
+                  <Typography style={{color:"#FFC533"}}><b>{gameStatus.played}</b></Typography>
+                    <Typography>Played</Typography>
                   </Box>
 
                   <Divider />
@@ -253,10 +270,12 @@ const GameScreen = ({ game, saveGameAction }) => {
                     px={4}
                     py={2}
                     display="flex"
+                    flexDirection="column"
                     justifyContent="space-between"
                     alignItems="center"
                   >
-                    <Typography>{`Win : ${gameStatus.win}`}</Typography>
+                    <Typography style={{color:"#FFC533"}}><b>{gameStatus.win}</b></Typography>
+                    <Typography>Win</Typography>
                   </Box>
 
                   <Divider />
@@ -265,10 +284,12 @@ const GameScreen = ({ game, saveGameAction }) => {
                     px={4}
                     py={2}
                     display="flex"
+                    flexDirection="column"
                     justifyContent="space-between"
                     alignItems="center"
                   >
-                    <Typography>{`Loose : ${gameStatus.loose}`}</Typography>
+                    <Typography style={{color:"#FFC533"}}><b>{gameStatus.loose}</b></Typography>
+                    <Typography>Loose</Typography>
                   </Box>
                 </Box>
               </Box>
@@ -315,15 +336,15 @@ const GameScreen = ({ game, saveGameAction }) => {
                     {gameStatus.status === 'loose' ||
                     gameStatus.status === 'win' ? (
                       <Typography>
-                        You {status === 'win' ? 'won' : 'lost'}
+                        <b>You {status === 'win' ? '🤩 won' : '🙁 lost'}</b>
                       </Typography>
                     ) : (
-                      <Typography>{cards.length} cards left</Typography>
+                      <Typography><b>{cards.length} cards left</b></Typography>
                     )}
                   </Box>
 
                   {gameStatus.status === 'restarting' && (
-                    <Typography>Shuffling ...</Typography>
+                    <Typography style={{color:"#FFC533"}}><b>Shuffling ...</b></Typography>
                   )}
 
                   {(gameStatus.status === 'loose' ||

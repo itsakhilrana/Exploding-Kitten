@@ -26,33 +26,36 @@ const LeaderBoard = ({ leaderBoard, leaderBoardAction }) => {
       style={{
         color: 'aliceblue',
         backgroundColor: '#232323',
-        height:"100vh",
-        padding:"20px"
+        height: '100vh',
+        padding: '20px',
       }}
     >
-      <Typography align="center" paragraph>
+      <Typography align="center" style={{ color: '#FFC533' }} paragraph>
         <b>LeaderBoard</b>
       </Typography>
 
       <Box position="absolute" right={0} top={16} cursor="pointer">
         <Button variant="text" onClick={leaderBoardAction}>
-          <Refresh style={{color:"aliceblue"}} fontSize="small" />
+          <Refresh style={{ color: 'aliceblue' }} fontSize="small" />
         </Button>
       </Box>
 
       <Box display="grid" gridGap={5} mt={3}>
         <Box mb={2}>
           <Box px={2} py={1} display="flex" justifyContent="space-between">
-            <Typography>Username</Typography>
-            <Typography>Points</Typography>
+            <Typography><b>Username</b></Typography>
+            <Typography><b>Points</b></Typography>
           </Box>
           <Divider />
         </Box>
         {users.map((user) => (
           <Box
-            boxShadow="0 1px 3px 0 rgba(0,0,0,0.1)"
-            border="0.5px solid #eee"
             key={user._id}
+            style={{
+              backgroundColor: '#FFC533',
+              color: '#232323',
+              
+            }}
           >
             <Box
               px={2}
@@ -61,8 +64,12 @@ const LeaderBoard = ({ leaderBoard, leaderBoardAction }) => {
               justifyContent="space-between"
               style={{ textTransform: 'uppercase' }}
             >
-              <Typography>{user.username}</Typography>
-              <Typography>{user.win}</Typography>
+              <Typography>
+                <b>{user.username}</b>
+              </Typography>
+              <Typography>
+                <b>{user.win}</b>
+              </Typography>
             </Box>
           </Box>
         ))}

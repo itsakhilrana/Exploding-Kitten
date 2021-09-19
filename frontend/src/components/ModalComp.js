@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: '#232323',
+    backgroundColor: '#FFC533',
     outline: 'none',
     minWidth: '300px',
     padding: theme.spacing(6),
