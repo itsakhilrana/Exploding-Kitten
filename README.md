@@ -1,8 +1,9 @@
 # Exploding Kitten Game
 
 > A Game built with the ReactJs, Redux & NodeJs.
-[Live link of Exploding Kitten](https://kittengame.herokuapp.com/)
+> [Live link of Exploding Kitten](https://kittengame.herokuapp.com/)
 
+![screenshot](https://github.com/itsakhilrana/Exploding-Kitten/blob/master/frontend/src/assets/explodingKittenCover.PNG)
 
 ## About the Project
 
@@ -11,7 +12,6 @@
 - Designed schema for no-SQL DB (mongodb) using the mongoose.
 - Executed lifecycle operations using functional component approach in ReactJs.
 - Implemented reducers and actions for handling the API fetch logic using redux thunk.
-
 
 ### Install Dependencies (Frontend)
 
@@ -38,10 +38,10 @@ npm start
 npm install
 
 ```
+
 ### Run
 
 ```
 npm start
 
 ```
-
