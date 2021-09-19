@@ -335,14 +335,24 @@ const GameScreen = ({ game, saveGameAction }) => {
                     left={0}
                     right={0}
                     py={1}
-                    style={{
-                      color: '#232323',
-                      fontWeight: 'bold',
+                    style={gameStatus.status === 'win' ? {
+                      color: 'aliceblue',
                       display: 'flex',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      backgroundColor: '#FFC533',
-                    }}
+                      backgroundColor: '#47ffac',
+                    } : gameStatus.status === 'loose' ? {
+                      color: 'aliceblue',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#ff3f3f',
+                    } :{
+                      color: '#232323',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#FFC533', }}
                   >
                     {gameStatus.status === 'loose' ||
                     gameStatus.status === 'win' ? (
