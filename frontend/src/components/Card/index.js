@@ -1,5 +1,5 @@
 import React from 'react'
-import cardCovid from '../../assets/cardCover.png'
+import cardCover from '../../assets/cardCover.png'
 
 const index = ({ id, card }) => {
   console.log(card)
@@ -7,7 +7,7 @@ const index = ({ id, card }) => {
     <div class="card-scene">
       <div id={id} class="card">
         <div class="card-face card-backing">
-          <div class="grain-overlay" style={{background:`${cardCovid}`}}></div>
+          <div class="grain-overlay" style={{background:`${cardCover}`}}></div>
 
           <div class="top-banner">Click to Flip</div>
          

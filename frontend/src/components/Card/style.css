@@ -20,9 +20,11 @@ html {
   height: 290px;
   perspective: 600px;
   -webkit-animation: cardAppear 1.4s forwards;
+  -moz-animation: cardAppear 1.4s forwards;
+  -ms-animation: cardAppear 1.4s forwards;
+  -o-animation: cardAppear 1.4s forwards;
   animation: cardAppear 1.4s forwards;
 }
-
 @-webkit-keyframes cardAppear {
   0% {
     transform: rotate3d(0, 0, 1, 15deg) translate3d(0, -100vh, 0);
@@ -52,6 +54,52 @@ html {
     transform: rotate3d(0, 0, 1, -5deg) scale3d(1.05, 1.05, 1);
   }
 }
+
+@-moz-keyframes cardAppear {
+  0% {
+    transform: rotate3d(0, 0, 1, 15deg) translate3d(0, -100vh, 0);
+  }
+  30% {
+    transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 0);
+  }
+  65% {
+    transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg) scale3d(1.05, 1.05, 1);
+  }
+}
+
+@-ms-keyframes cardAppear {
+  0% {
+    transform: rotate3d(0, 0, 1, 15deg) translate3d(0, -100vh, 0);
+  }
+  30% {
+    transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 0);
+  }
+  65% {
+    transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg) scale3d(1.05, 1.05, 1);
+  }
+}
+
+@-o-keyframes cardAppear {
+  0% {
+    transform: rotate3d(0, 0, 1, 15deg) translate3d(0, -100vh, 0);
+  }
+  30% {
+    transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 0);
+  }
+  65% {
+    transform: rotate3d(0, 0, 0, 0deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg) scale3d(1.05, 1.05, 1);
+  }
+}
+
 .card {
   height: 100%;
   width: 100%;
@@ -61,11 +109,53 @@ html {
 }
 .card.card--flipped {
   -webkit-animation: cardFlip 0.275s forwards linear;
+  -moz-animation: cardFlip 0.275s forwards linear;
+  -ms-animation: cardFlip 0.275s forwards linear;
+  -o-animation: cardFlip 0.275s forwards linear;
   animation: cardFlip 0.275s forwards linear;
 }
 .card.card--unflip {
   -webkit-animation: cardUnFlip 0.275s forwards linear;
+  -moz-animation: cardUnFlip 0.275s forwards linear;
+  -ms-animation: cardUnFlip 0.275s forwards linear;
+  -o-animation: cardUnFlip 0.275s forwards linear;
   animation: cardUnFlip 0.275s forwards linear;
+}
+
+@-moz-keyframes cardFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+}
+
+@-ms-keyframes cardFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+}
+
+@-o-keyframes cardFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
 }
 
 @-webkit-keyframes cardFlip {
@@ -80,6 +170,7 @@ html {
   }
 }
 
+
 @keyframes cardFlip {
   0% {
     transform: rotateZ(0deg) rotateY(180deg);
@@ -91,6 +182,43 @@ html {
     transform: rotateZ(0deg) rotateY(0deg);
   }
 }
+
+@-moz-keyframes cardUnFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+}
+
+@-ms-keyframes cardUnFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+}
+
+@-o-keyframes cardUnFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+}
+
 @-webkit-keyframes cardUnFlip {
   0% {
     transform: rotateZ(0deg) rotateY(0deg);
@@ -194,7 +322,7 @@ html {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
- 
+
   height: 280px;
   width: 285px;
   border-radius: 9px;
@@ -275,7 +403,7 @@ html {
   top: -8px;
   right: -1px;
   border-width: 0 3px 7px 0;
-  
+
   border-style: solid;
   display: block;
 }
