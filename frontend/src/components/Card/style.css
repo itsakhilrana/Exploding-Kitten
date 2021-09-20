@@ -194,7 +194,6 @@ html {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
- 
   height: 280px;
   width: 285px;
   border-radius: 9px;
