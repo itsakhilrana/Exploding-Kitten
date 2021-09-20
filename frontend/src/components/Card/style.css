@@ -204,6 +204,11 @@ html {
 .card-front {
   grid-template-rows: 4.4rem 16% auto;
   position: relative;
+  -webkit-perspective: 0;
+  -webkit-backface-visibility: hidden;
+  
+  visibility:visible;
+  backface-visibility: hidden;
   display: grid;
   grid-template-rows: 3;
   background-color: var(--color-bone);
