@@ -204,6 +204,10 @@ html {
   grid-template-rows: 4.4rem 16% auto;
   position: relative;
   
+  
+  -webkit-transform: translate3d(0,0,0);
+  visibility:visible;
+  backface-visibility: hidden;
   display: grid;
   grid-template-rows: 3;
   background-color: var(--color-bone);
