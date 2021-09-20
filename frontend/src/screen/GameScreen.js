@@ -315,7 +315,7 @@ const GameScreen = ({ game, saveGameAction }) => {
               >
                 <Box display="flex" justifyContent="center" alignItems="center">
                   {gameStatus.status === 'running' && (
-                    <Box position="relative" width={285} height={290}>
+                    <Box position="relative" width={285} height={290} mt={5}>
                       {cards.map((card, key) => (
                         <Box
                           className={classes.root}
